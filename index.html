@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Soraya ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #35111d, #090909 65%);
+      color: white;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .contenedor {
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      animation: aparecer 1.5s ease;
+    }
+
+    .corazon {
+      font-size: 55px;
+      margin-bottom: 25px;
+      animation: latido 2s infinite;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .subtitulo {
+      color: #c9c9c9;
+      font-size: 16px;
+      margin-bottom: 35px;
+    }
+
+    input {
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid #555;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      text-align: center;
+      font-size: 16px;
+      outline: none;
+      margin-bottom: 15px;
+    }
+
+    input:focus {
+      border-color: #ff4d6d;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #ff4d6d, #c9184a);
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    #error {
+      color: #ff8fa3;
+      margin-top: 15px;
+      display: none;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes latido {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.12);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="contenedor">
+
+    <div class="corazon">❤️</div>
+
+    <h1>Para Soraya</h1>
+
+    <p class="subtitulo">
+      Hay algo que quiero enseñarte...
+    </p>
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Introduce la contraseña"
+    >
+
+    <button onclick="entrar()">
+      Entrar ❤️
+    </button>
+
+    <p id="error">
+      Esa no es la contraseña...
+    </p>
+
+  </div>
+
+  <script>
+    function entrar() {
+
+      const contraseña = document.getElementById("password").value;
+
+      if (contraseña === "mi cuadro de 30 millones") {
+
+        window.location.href = "video.html";
+
+      } else {
+
+        document.getElementById("error").style.display = "block";
+
+      }
+    }
+  </script>
+
+</body>
+</html>
