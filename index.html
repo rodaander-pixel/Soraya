@@ -372,8 +372,69 @@ const music = document.getElementById("music");
 const musicButton = document.getElementById("musicButton");
 
 let opened = false;
+<script>
+const envelope = document.getElementById("envelope");
+const wrapper = document.getElementById("envelopeWrapper");
+const letter = document.getElementById("letter");
+const hint = document.getElementById("hint");
+const music = document.getElementById("music");
+const musicButton = document.getElementById("musicButton");
+
+let opened = false;
 
 wrapper.addEventListener("click", () => {
+
+  if (opened) return;
+
+  opened = true;
+
+  // Abrir el sobre
+  envelope.classList.add("open");
+  hint.style.opacity = "0";
+
+  // IMPORTANTE:
+  // Iniciamos la música directamente con el toque del usuario.
+  music.volume = 0.35;
+
+  music.play()
+    .then(() => {
+      musicButton.textContent = "❚❚ Pausar música";
+    })
+    .catch((error) => {
+      console.log("No se pudo iniciar la música:", error);
+      musicButton.textContent = "▶ Tocar música";
+    });
+
+  // Mostrar la carta después de la animación
+  setTimeout(() => {
+    letter.style.display = "block";
+
+    letter.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }, 850);
+});
+
+musicButton.addEventListener("click", (event) => {
+
+  event.stopPropagation();
+
+  if (music.paused) {
+    music.play()
+      .then(() => {
+        musicButton.textContent = "❚❚ Pausar música";
+      })
+      .catch(() => {
+        musicButton.textContent = "▶ Tocar música";
+      });
+  } else {
+    music.pause();
+    musicButton.textContent = "♪ Música";
+  }
+
+});
+</script>
 
   if (opened) return;
 
