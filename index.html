@@ -1,158 +1,422 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para Soraya ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Soraya ❤️</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #35111d, #090909 65%);
-      color: white;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
+html, body {
+  width: 100%;
+  min-height: 100%;
+}
 
-    .contenedor {
-      width: 90%;
-      max-width: 500px;
-      text-align: center;
-      animation: aparecer 1.5s ease;
-    }
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 50% 0%, #34204f 0%, #120d20 45%, #050509 100%);
+  color: white;
+  font-family: Georgia, "Times New Roman", serif;
+}
 
-    .corazon {
-      font-size: 55px;
-      margin-bottom: 25px;
-      animation: latido 2s infinite;
-    }
+/* ESTRELLAS */
+.stars,
+.stars::before,
+.stars::after {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
 
-    h1 {
-      font-size: 32px;
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
+.stars {
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255,215,150,.8) 1px, transparent 1.5px);
+  background-size: 95px 95px, 145px 145px;
+  background-position: 10px 20px, 60px 80px;
+  animation: starsMove 18s linear infinite;
+  opacity: .8;
+}
 
-    .subtitulo {
-      color: #c9c9c9;
-      font-size: 16px;
-      margin-bottom: 35px;
-    }
+@keyframes starsMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(95px); }
+}
 
-    input {
-      width: 100%;
-      padding: 16px;
-      border-radius: 14px;
-      border: 1px solid #555;
-      background: rgba(255,255,255,0.08);
-      color: white;
-      text-align: center;
-      font-size: 16px;
-      outline: none;
-      margin-bottom: 15px;
-    }
+/* CONTENEDOR */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 20px;
+  position: relative;
+  z-index: 2;
+}
 
-    input:focus {
-      border-color: #ff4d6d;
-    }
+.subtitle {
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  opacity: .75;
+  margin-bottom: 12px;
+}
 
-    button {
-      width: 100%;
-      padding: 16px;
-      border: none;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #ff4d6d, #c9184a);
-      color: white;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-    }
+h1 {
+  font-size: clamp(32px, 8vw, 55px);
+  letter-spacing: 4px;
+  font-weight: normal;
+  margin-bottom: 55px;
+  text-shadow: 0 0 20px rgba(255,255,255,.25);
+}
 
-    button:active {
-      transform: scale(0.98);
-    }
+.heart {
+  color: #fff;
+  display: inline-block;
+  animation: heartbeat 2s infinite;
+}
 
-    #error {
-      color: #ff8fa3;
-      margin-top: 15px;
-      display: none;
-    }
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.15); }
+  30% { transform: scale(1); }
+}
 
-    @keyframes aparecer {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+/* SOBRE */
+.envelope-wrapper {
+  perspective: 1000px;
+  cursor: pointer;
+}
 
-    @keyframes latido {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.12);
-      }
-    }
-  </style>
+.envelope {
+  width: min(82vw, 390px);
+  height: 245px;
+  position: relative;
+  transition: transform .5s ease;
+  filter: drop-shadow(0 20px 35px rgba(0,0,0,.5));
+}
+
+.envelope:hover {
+  transform: translateY(-6px);
+}
+
+.envelope-body {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #d58b72, #6e3148);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.18);
+}
+
+.envelope-body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(145deg, transparent 49%, rgba(35,10,25,.35) 50%, transparent 51%),
+    linear-gradient(35deg, transparent 49%, rgba(255,220,210,.18) 50%, transparent 51%);
+}
+
+.flap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(145deg, #e19a7d, #8b4657);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  transition: transform 1s cubic-bezier(.65,.05,.36,1);
+  z-index: 4;
+}
+
+.seal {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 35% 30%, #ff6b73, #bd1835 70%);
+  border: 3px solid rgba(255,255,255,.25);
+  box-shadow:
+    0 7px 20px rgba(0,0,0,.35),
+    inset 0 0 15px rgba(255,255,255,.2);
+  font-size: 38px;
+  font-family: cursive;
+  transition: opacity .5s ease, transform .7s ease;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.5);
+}
+
+.envelope.open {
+  transform: translateY(20px);
+}
+
+/* INDICACIÓN */
+.hint {
+  margin-top: 32px;
+  font-style: italic;
+  opacity: .8;
+  font-size: 15px;
+  animation: breathe 2.5s infinite;
+}
+
+@keyframes breathe {
+  50% { opacity: .45; }
+}
+
+/* CARTA */
+.letter {
+  width: min(92vw, 700px);
+  margin-top: 50px;
+  background:
+    linear-gradient(rgba(255,248,226,.96), rgba(241,225,188,.97));
+  color: #39291f;
+  border-radius: 5px;
+  padding: 45px 30px;
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.6),
+    inset 0 0 35px rgba(120,75,30,.12);
+  display: none;
+  animation: letterAppear 1.4s ease forwards;
+}
+
+@keyframes letterAppear {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.letter h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+.letter p {
+  font-size: 18px;
+  line-height: 1.9;
+  margin-bottom: 22px;
+}
+
+.signature {
+  text-align: right;
+  margin-top: 35px;
+  font-family: cursive;
+  font-size: 25px;
+}
+
+.final-heart {
+  text-align: center;
+  font-size: 35px;
+  margin-top: 30px;
+}
+
+/* MÚSICA */
+.music {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 10;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(20,10,30,.7);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+/* MÓVIL */
+@media (max-width: 600px) {
+  .container {
+    padding-top: 55px;
+  }
+
+  h1 {
+    margin-bottom: 40px;
+  }
+
+  .envelope {
+    height: 210px;
+  }
+
+  .letter {
+    padding: 35px 22px;
+  }
+
+  .letter p {
+    font-size: 17px;
+    line-height: 1.8;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="contenedor">
+<div class="stars"></div>
 
-    <div class="corazon">❤️</div>
+<main class="container">
 
-    <h1>Para Soraya</h1>
+  <div class="subtitle">Una carta para ti</div>
 
-    <p class="subtitulo">
-      Hay algo que quiero enseñarte...
-    </p>
+  <h1>
+    PARA SORAYA <span class="heart">♥</span>
+  </h1>
 
-    <input
-      type="password"
-      id="password"
-      placeholder="Introduce la contraseña"
-    >
+  <div class="envelope-wrapper" id="envelopeWrapper">
 
-    <button onclick="entrar()">
-      Entrar ❤️
-    </button>
+    <div class="envelope" id="envelope">
 
-    <p id="error">
-      Esa no es la contraseña...
-    </p>
+      <div class="envelope-body"></div>
+
+      <div class="flap"></div>
+
+      <div class="seal">S</div>
+
+    </div>
 
   </div>
 
-  <script>
-    function entrar() {
+  <div class="hint" id="hint">
+    Toca el sobre para abrir tu carta
+  </div>
 
-      const contraseña = document.getElementById("password").value;
+  <article class="letter" id="letter">
 
-      if (contraseña === "mi cuadro de 30 millones") {
+    <h2>Para ti, Soraya ❤️</h2>
 
-     window.location.href = "https://rodaander-pixel.github.io/Soraya/video.html";
+    <p>
+      Hay cosas que son difíciles de explicar con palabras,
+      pero aun así quería intentar escribirte algo que pudieras
+      guardar.
+    </p>
 
-      } else {
+    <p>
+      Desde que llegaste a mi vida, has conseguido convertir
+      muchos momentos normales en momentos que recuerdo con
+      una sonrisa.
+    </p>
 
-        document.getElementById("error").style.display = "block";
+    <p>
+      No quiero que esta carta sea solamente unas palabras
+      bonitas. Quiero que sea un pequeño recuerdo de todo lo
+      que siento por ti y de lo importante que eres para mí.
+    </p>
 
-      }
-    }
-  </script>
+    <p>
+      Gracias por estar a mi lado, por hacerme sonreír y por
+      compartir conmigo tantos momentos. Espero que podamos
+      seguir creando muchos más recuerdos juntos.
+    </p>
+
+    <p>
+      Si algún día dudas de lo mucho que significas para mí,
+      vuelve a esta carta.
+    </p>
+
+    <div class="signature">
+      Con todo mi amor,<br>
+      Ander ❤️
+    </div>
+
+    <div class="final-heart">♥</div>
+
+  </article>
+
+</main>
+
+<button class="music" id="musicButton">
+  ♪ Música
+</button>
+
+<audio id="music" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const envelope = document.getElementById("envelope");
+const wrapper = document.getElementById("envelopeWrapper");
+const letter = document.getElementById("letter");
+const hint = document.getElementById("hint");
+const music = document.getElementById("music");
+const musicButton = document.getElementById("musicButton");
+
+let opened = false;
+
+wrapper.addEventListener("click", () => {
+
+  if (opened) return;
+
+  opened = true;
+
+  envelope.classList.add("open");
+
+  hint.style.opacity = "0";
+
+  setTimeout(() => {
+    letter.style.display = "block";
+
+    letter.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }, 850);
+
+  music.volume = 0.35;
+
+  music.play()
+    .then(() => {
+      musicButton.textContent = "❚❚ Pausar música";
+    })
+    .catch(() => {
+      musicButton.textContent = "♪ Música";
+    });
+});
+
+musicButton.addEventListener("click", (event) => {
+
+  event.stopPropagation();
+
+  if (music.paused) {
+    music.play();
+    musicButton.textContent = "❚❚ Pausar música";
+  } else {
+    music.pause();
+    musicButton.textContent = "♪ Música";
+  }
+
+});
+</script>
 
 </body>
 </html>
