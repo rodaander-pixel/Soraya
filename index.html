@@ -453,15 +453,20 @@ musicButton.addEventListener("click", (event) => {
     });
   }, 850);
 
-  music.volume = 0.35;
+  music.volume = 1.0;
+music.load();
 
+const playMusic = () => {
   music.play()
     .then(() => {
       musicButton.textContent = "❚❚ Pausar música";
     })
     .catch(() => {
-      musicButton.textContent = "♪ Música";
+      musicButton.textContent = "▶ Tocar música";
     });
+};
+
+playMusic();
 });
 
 musicButton.addEventListener("click", (event) => {
