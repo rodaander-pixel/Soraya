@@ -322,13 +322,9 @@ h1{
 
 </main>
 
-<button class="music" id="musicButton" type="button"
-onclick="document.getElementById('music').play()">
-  ▶ Tocar música
-</button>
-
-<audio id="music" loop preload="auto">
+<audio id="music" controls loop preload="metadata" class="music">
   <source src="musica.mp3" type="audio/mpeg">
+  Tu navegador no puede reproducir este audio.
 </audio>
 
 <script>
@@ -337,7 +333,7 @@ const wrapper = document.getElementById("envelopeWrapper");
 const letter = document.getElementById("letter");
 const hint = document.getElementById("hint");
 const music = document.getElementById("music");
-const musicButton = document.getElementById("musicButton");
+
 
 let opened = false;
 
@@ -350,15 +346,7 @@ wrapper.addEventListener("click", () => {
   envelope.classList.add("open");
   hint.style.opacity = "0";
 
-  music.volume = 0.35;
-
-  music.play()
-    .then(() => {
-      musicButton.textContent = "❚❚ Pausar música";
-    })
-    .catch(() => {
-      musicButton.textContent = "▶ Tocar música";
-    });
+  
 
   setTimeout(() => {
 
@@ -373,28 +361,7 @@ wrapper.addEventListener("click", () => {
 
 });
 
-musicButton.addEventListener("click",(event) => {
 
-  event.stopPropagation();
-
-  if(music.paused){
-
-    music.play()
-      .then(() => {
-        musicButton.textContent = "❚❚ Pausar música";
-      })
-      .catch(() => {
-        musicButton.textContent = "▶ Tocar música";
-      });
-
-  }else{
-
-    music.pause();
-    musicButton.textContent = "♪ Música";
-
-  }
-
-});
 </script>
 
 </body>
