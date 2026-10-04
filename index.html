@@ -6,277 +6,239 @@
 <title>Para Soraya ❤️</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-html, body {
-  width: 100%;
-  min-height: 100%;
+html,body{
+  width:100%;
+  min-height:100%;
 }
 
-body {
-  min-height: 100vh;
-  overflow-x: hidden;
-  background:
-    radial-gradient(circle at 50% 0%, #34204f 0%, #120d20 45%, #050509 100%);
-  color: white;
-  font-family: Georgia, "Times New Roman", serif;
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+  background:radial-gradient(circle at 50% 0%,#34204f 0%,#120d20 45%,#050509 100%);
+  color:white;
+  font-family:Georgia,"Times New Roman",serif;
 }
 
-/* ESTRELLAS */
 .stars,
-.stars::before,
-.stars::after {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
+.stars:before,
+.stars:after{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
 }
 
-.stars {
+.stars{
   background-image:
-    radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(255,215,150,.8) 1px, transparent 1.5px);
-  background-size: 95px 95px, 145px 145px;
-  background-position: 10px 20px, 60px 80px;
-  animation: starsMove 18s linear infinite;
-  opacity: .8;
+    radial-gradient(circle,rgba(255,255,255,.9) 1px,transparent 1.5px),
+    radial-gradient(circle,rgba(255,215,150,.8) 1px,transparent 1.5px);
+  background-size:95px 95px,145px 145px;
+  background-position:10px 20px,60px 80px;
+  animation:starsMove 18s linear infinite;
+  opacity:.8;
 }
 
-@keyframes starsMove {
-  from { transform: translateY(0); }
-  to { transform: translateY(95px); }
+@keyframes starsMove{
+  from{transform:translateY(0)}
+  to{transform:translateY(95px)}
 }
 
-/* CONTENEDOR */
-.container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 35px 20px;
-  position: relative;
-  z-index: 2;
+.container{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:35px 20px;
+  position:relative;
+  z-index:2;
 }
 
-.subtitle {
-  font-size: 12px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  opacity: .75;
-  margin-bottom: 12px;
+.subtitle{
+  font-size:12px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  opacity:.75;
+  margin-bottom:12px;
 }
 
-h1 {
-  font-size: clamp(32px, 8vw, 55px);
-  letter-spacing: 4px;
-  font-weight: normal;
-  margin-bottom: 55px;
-  text-shadow: 0 0 20px rgba(255,255,255,.25);
+h1{
+  font-size:clamp(32px,8vw,55px);
+  letter-spacing:4px;
+  font-weight:normal;
+  margin-bottom:55px;
+  text-shadow:0 0 20px rgba(255,255,255,.25);
 }
 
-.heart {
-  color: #fff;
-  display: inline-block;
-  animation: heartbeat 2s infinite;
+.heart{
+  color:#fff;
+  display:inline-block;
+  animation:heartbeat 2s infinite;
 }
 
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  15% { transform: scale(1.15); }
-  30% { transform: scale(1); }
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}
+  15%{transform:scale(1.15)}
+  30%{transform:scale(1)}
 }
 
-/* SOBRE */
-.envelope-wrapper {
-  perspective: 1000px;
-  cursor: pointer;
+.envelope-wrapper{
+  perspective:1000px;
+  cursor:pointer;
 }
 
-.envelope {
-  width: min(82vw, 390px);
-  height: 245px;
-  position: relative;
-  transition: transform .5s ease;
-  filter: drop-shadow(0 20px 35px rgba(0,0,0,.5));
+.envelope{
+  width:min(82vw,390px);
+  height:245px;
+  position:relative;
+  transition:transform .5s ease;
+  filter:drop-shadow(0 20px 35px rgba(0,0,0,.5));
 }
 
-.envelope:hover {
-  transform: translateY(-6px);
+.envelope-body{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(145deg,#d58b72,#6e3148);
+  border-radius:8px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.18);
 }
 
-.envelope-body {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(145deg, #d58b72, #6e3148);
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.18);
-}
-
-.envelope-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
+.envelope-body:before{
+  content:"";
+  position:absolute;
+  inset:0;
   background:
-    linear-gradient(145deg, transparent 49%, rgba(35,10,25,.35) 50%, transparent 51%),
-    linear-gradient(35deg, transparent 49%, rgba(255,220,210,.18) 50%, transparent 51%);
+    linear-gradient(145deg,transparent 49%,rgba(35,10,25,.35) 50%,transparent 51%),
+    linear-gradient(35deg,transparent 49%,rgba(255,220,210,.18) 50%,transparent 51%);
 }
 
-.flap {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 60%;
-  background: linear-gradient(145deg, #e19a7d, #8b4657);
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  transform-origin: top;
-  transition: transform 1s cubic-bezier(.65,.05,.36,1);
-  z-index: 4;
+.flap{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:60%;
+  background:linear-gradient(145deg,#e19a7d,#8b4657);
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transform-origin:top;
+  transition:transform 1s cubic-bezier(.65,.05,.36,1);
+  z-index:4;
 }
 
-.seal {
-  position: absolute;
-  z-index: 5;
-  left: 50%;
-  top: 55%;
-  transform: translate(-50%, -50%);
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at 35% 30%, #ff6b73, #bd1835 70%);
-  border: 3px solid rgba(255,255,255,.25);
-  box-shadow:
-    0 7px 20px rgba(0,0,0,.35),
-    inset 0 0 15px rgba(255,255,255,.2);
-  font-size: 38px;
-  font-family: cursive;
-  transition: opacity .5s ease, transform .7s ease;
+.seal{
+  position:absolute;
+  z-index:5;
+  left:50%;
+  top:55%;
+  transform:translate(-50%,-50%);
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle at 35% 30%,#ff6b73,#bd1835 70%);
+  border:3px solid rgba(255,255,255,.25);
+  box-shadow:0 7px 20px rgba(0,0,0,.35),inset 0 0 15px rgba(255,255,255,.2);
+  font-size:38px;
+  font-family:cursive;
+  transition:opacity .5s ease,transform .7s ease;
 }
 
-.envelope.open .flap {
-  transform: rotateX(180deg);
+.envelope.open .flap{
+  transform:rotateX(180deg);
 }
 
-.envelope.open .seal {
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(.5);
+.envelope.open .seal{
+  opacity:0;
+  transform:translate(-50%,-50%) scale(.5);
 }
 
-.envelope.open {
-  transform: translateY(20px);
+.envelope.open{
+  transform:translateY(20px);
 }
 
-/* INDICACIÓN */
-.hint {
-  margin-top: 32px;
-  font-style: italic;
-  opacity: .8;
-  font-size: 15px;
-  animation: breathe 2.5s infinite;
+.hint{
+  margin-top:32px;
+  font-style:italic;
+  opacity:.8;
+  font-size:15px;
+  animation:breathe 2.5s infinite;
 }
 
-@keyframes breathe {
-  50% { opacity: .45; }
+@keyframes breathe{
+  50%{opacity:.45}
 }
 
-/* CARTA */
-.letter {
-  width: min(92vw, 700px);
-  margin-top: 50px;
-  background:
-    linear-gradient(rgba(255,248,226,.96), rgba(241,225,188,.97));
-  color: #39291f;
-  border-radius: 5px;
-  padding: 45px 30px;
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.6),
-    inset 0 0 35px rgba(120,75,30,.12);
-  display: none;
-  animation: letterAppear 1.4s ease forwards;
+.letter{
+  width:min(92vw,700px);
+  margin-top:50px;
+  background:linear-gradient(rgba(255,248,226,.96),rgba(241,225,188,.97));
+  color:#39291f;
+  border-radius:5px;
+  padding:45px 30px;
+  box-shadow:0 25px 70px rgba(0,0,0,.6),inset 0 0 35px rgba(120,75,30,.12);
+  display:none;
+  animation:letterAppear 1.4s ease forwards;
 }
 
-@keyframes letterAppear {
-  from {
-    opacity: 0;
-    transform: translateY(60px) scale(.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+@keyframes letterAppear{
+  from{opacity:0;transform:translateY(60px) scale(.95)}
+  to{opacity:1;transform:translateY(0) scale(1)}
 }
 
-.letter h2 {
-  text-align: center;
-  font-size: 30px;
-  font-weight: normal;
-  margin-bottom: 30px;
+.letter h2{
+  text-align:center;
+  font-size:30px;
+  font-weight:normal;
+  margin-bottom:30px;
 }
 
-.letter p {
-  font-size: 18px;
-  line-height: 1.9;
-  margin-bottom: 22px;
+.letter p{
+  font-size:18px;
+  line-height:1.9;
+  margin-bottom:22px;
 }
 
-.signature {
-  text-align: right;
-  margin-top: 35px;
-  font-family: cursive;
-  font-size: 25px;
+.signature{
+  text-align:right;
+  margin-top:35px;
+  font-family:cursive;
+  font-size:25px;
 }
 
-.final-heart {
-  text-align: center;
-  font-size: 35px;
-  margin-top: 30px;
+.final-heart{
+  text-align:center;
+  font-size:35px;
+  margin-top:30px;
 }
 
-/* MÚSICA */
-.music {
-  position: fixed;
-  bottom: 18px;
-  right: 18px;
-  z-index: 10;
-  border: 1px solid rgba(255,255,255,.25);
-  background: rgba(20,10,30,.7);
-  backdrop-filter: blur(10px);
-  color: white;
-  padding: 10px 15px;
-  border-radius: 30px;
-  cursor: pointer;
+.music{
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  z-index:10;
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(20,10,30,.7);
+  backdrop-filter:blur(10px);
+  color:white;
+  padding:10px 15px;
+  border-radius:30px;
+  cursor:pointer;
 }
 
-/* MÓVIL */
-@media (max-width: 600px) {
-  .container {
-    padding-top: 55px;
-  }
-
-  h1 {
-    margin-bottom: 40px;
-  }
-
-  .envelope {
-    height: 210px;
-  }
-
-  .letter {
-    padding: 35px 22px;
-  }
-
-  .letter p {
-    font-size: 17px;
-    line-height: 1.8;
-  }
+@media(max-width:600px){
+  .container{padding-top:55px}
+  h1{margin-bottom:40px}
+  .envelope{height:210px}
+  .letter{padding:35px 22px}
+  .letter p{font-size:17px;line-height:1.8}
 }
 </style>
 </head>
@@ -298,9 +260,7 @@ h1 {
     <div class="envelope" id="envelope">
 
       <div class="envelope-body"></div>
-
       <div class="flap"></div>
-
       <div class="seal">S</div>
 
     </div>
@@ -359,10 +319,9 @@ h1 {
   ♪ Música
 </button>
 
-<audio id="music" loop>
+<audio id="music" loop preload="auto">
   <source src="musica.mp3" type="audio/mpeg">
 </audio>
-
 
 <script>
 const envelope = document.getElementById("envelope");
@@ -380,75 +339,11 @@ wrapper.addEventListener("click", () => {
 
   opened = true;
 
-  // Abrir el sobre
   envelope.classList.add("open");
   hint.style.opacity = "0";
 
-  // IMPORTANTE:
-  // Iniciamos la música directamente con el toque del usuario.
   music.volume = 0.35;
 
-  music.play()
-    .then(() => {
-      musicButton.textContent = "❚❚ Pausar música";
-    })
-    .catch((error) => {
-      console.log("No se pudo iniciar la música:", error);
-      musicButton.textContent = "▶ Tocar música";
-    });
-
-  // Mostrar la carta después de la animación
-  setTimeout(() => {
-    letter.style.display = "block";
-
-    letter.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  }, 850);
-});
-
-musicButton.addEventListener("click", (event) => {
-
-  event.stopPropagation();
-
-  if (music.paused) {
-    music.play()
-      .then(() => {
-        musicButton.textContent = "❚❚ Pausar música";
-      })
-      .catch(() => {
-        musicButton.textContent = "▶ Tocar música";
-      });
-  } else {
-    music.pause();
-    musicButton.textContent = "♪ Música";
-  }
-
-});
-</script>
-
-  if (opened) return;
-
-  opened = true;
-
-  envelope.classList.add("open");
-
-  hint.style.opacity = "0";
-
-  setTimeout(() => {
-    letter.style.display = "block";
-
-    letter.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  }, 850);
-
-  music.volume = 1.0;
-music.load();
-
-const playMusic = () => {
   music.play()
     .then(() => {
       musicButton.textContent = "❚❚ Pausar música";
@@ -456,21 +351,39 @@ const playMusic = () => {
     .catch(() => {
       musicButton.textContent = "▶ Tocar música";
     });
-};
 
-playMusic();
+  setTimeout(() => {
+
+    letter.style.display = "block";
+
+    letter.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+  },850);
+
 });
 
-musicButton.addEventListener("click", (event) => {
+musicButton.addEventListener("click",(event) => {
 
   event.stopPropagation();
 
-  if (music.paused) {
-    music.play();
-    musicButton.textContent = "❚❚ Pausar música";
-  } else {
+  if(music.paused){
+
+    music.play()
+      .then(() => {
+        musicButton.textContent = "❚❚ Pausar música";
+      })
+      .catch(() => {
+        musicButton.textContent = "▶ Tocar música";
+      });
+
+  }else{
+
     music.pause();
     musicButton.textContent = "♪ Música";
+
   }
 
 });
